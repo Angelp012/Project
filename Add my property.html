@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <link rel="shortcut icon" href="./images/Ellipse 1.png" type="image/x-icon">
+    <link rel="stylesheet" href= "./styles/common.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    
+    <title>Rental</title>
+  </head>
+  <body>
+    <h1>Add Your Property</h1>
+    <form id="PropertyForm">
+        <label for="Property_name">Property Name:</label>
+        <input type="text"
+        id="Property_name"
+        name="Property_name"required>
+        <label for="Property_type">Property Type</label>
+        <select id="Property_type"
+        name="Property_type"required>
+        <option
+        value="House">House</option>
+        <option
+        value="Apartment">Apartment</option>
+        <option
+        value="Bedsitter">Bedsitter</option>
+    </select>
+    <label for="description">Description:</label>
+    <textarea id="description"
+    name="description"required></textarea>
+    <label for="price">Price:</label>
+    <input type="number" id="price"
+    name="price"required>
+    <label for="image">Image:</label>
+    <input type="file" id="image"
+    name="image" accept="image/*" required>
+
+    <div>
+      <input type="checkbox"
+      id="agree_terms" name="agree_terms" required>
+      <label for="agree_terms"> I agree to the the <a href="terms_and_conditions">Terms and conditions</a>
+      </label>
+    </div>
+
+
+    <button type="button" onclick="saveFormData()">Submit</button>
+   
+    </form>
+    <section id="terms_and_conditions">
+    <h4>Terms and conditions</h4>
+    <p>By submitting your property,you agree to abide by the following terms and conditions:</p>
+    <ul>
+      <li>
+      You will have the right to approve or reject tenants applications sent via email
+      We shall provide lease agreements and ensure their execution by both parties
+      Rent will be directly sent to owner but ensure to pay 10% of the rent to agency sent via email
+      Routine maintenance and repairs will be handled by agency within limits of owner
+     Termination of agreement may be done with written notice of 20 days
+     Both parties agree to comply with all applicable laws and regulations governing property management
+    Both parties to agree to maintain the confidentiality of sensitive information shared during the course of agreement
+     Any disputes arising from this agreement shall be resolved through mediation or arbitration in accodance withe the laws of jurisdiction</li>
+    </ul>
+  </section>
+  <script>
+      function saveFormData() {
+          try {
+              const agreeTermsCheckbox = document.getElementById('agree_terms');
+              if (!agreeTermsCheckbox.checked) {
+                  alert("Please agree to the terms and conditions before submitting.");
+                  return;
+              }
+
+              const form = document.getElementById('PropertyForm');
+              const formData = new FormData(form);
+              const formObject = {};
+
+              formData.forEach((value, key) => {
+                  formObject[key] = value;
+              });
+
+              // Save the form data in local storage
+           
+              localStorage.setItem('propertyData', JSON.stringify(formObject));
+
+              
+              // Display a success message
+              alert("Form data saved successfully.");
+              
+              // Redirect to the page to display the saved data
+              window.location.href = 'property_details.html';
+          } catch (error) {
+              // Handle any potential errors
+              console.error("An error occurred while saving form data:", error);
+              alert("An error occurred while saving form data. Please try again later.");
+          }
+      }
+</script>
+
+    </body>
+</html>

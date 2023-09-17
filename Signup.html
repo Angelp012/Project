@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/Ellipse 1.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <title>Rental</title>
+</head>
+<body>
+    <div class="home-main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form onsubmit="myfunc(event)">
+                <label for="chk" aria-hidden="true">Signup</label>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <div id="error-message" style="color: red;"></div>
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function myfunc(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            var username = document.getElementById('username').value;
+            var errorMessage = document.getElementById('error-message');
+
+            // Clear previous error message
+            errorMessage.textContent = '';
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = "Password and Confirm Password do not match!";
+                return; // Prevent further execution
+            }
+
+            try {
+                localStorage.setItem('is_email', email);
+                localStorage.setItem('is_username', username);
+                localStorage.setItem('is_password', password);
+
+                // Redirect to index.html on successful sign-up
+                window.location.href = 'index.html';
+            } catch (e) {
+                errorMessage.textContent = "Error: Data could not be stored locally.";
+            }
+        }
+    </script>
+</body>
+</html>

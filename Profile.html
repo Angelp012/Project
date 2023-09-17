@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script >
+        // profile.js
+document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve user details from local storage
+    var storedUsername = localStorage.getItem('is_username');
+    var storedEmail = localStorage.getItem('is_email');
+
+    // Check if user details are available
+    if (storedUsername && storedEmail) {
+        // Populate the profile page with user details
+        document.getElementById('profile-username').textContent = storedUsername;
+        document.getElementById('profile-email').textContent = storedEmail;
+    } else {
+        // If user details are not available, you can handle it here (e.g., redirect to the sign-up page)
+        console.log('User details not found. Redirecting to sign-up page...');
+        // You can use window.location.href to redirect to the sign-up page
+    }
+});
+function updateProfile(event) {
+    event.preventDefault();
+
+    var newUsername = document.getElementById('newUsername').value;
+    var newEmail = document.getElementById('newEmail').value;
+
+    // Update user details in local storage
+    localStorage.setItem('is_username', newUsername);
+    localStorage.setItem('is_email', newEmail);
+
+    // Refresh the page to display updated information
+    location.reload();
+}
+
+function deleteProfile() {
+    // Confirm with the user before deleting the profile
+    var confirmDelete = confirm("Are you sure you want to delete your profile? This action cannot be undone.");
+
+    if (confirmDelete) {
+        // Clear user details from local storage
+        localStorage.removeItem('is_username');
+        localStorage.removeItem('is_email');
+        localStorage.removeItem('is_password'); // Optionally, remove the password as well
+
+        // Redirect to a sign-up or login page after deletion
+        window.location.href = 'Signup.html'; // Replace with the appropriate URL
+    }
+}
+
+
+    </script>
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="profile">
+        <h1>User Profile</h1>
+        <div class="profile-details">
+            <p><strong>Username:</strong> <span id="profile-username"></span></p>
+            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            <form onsubmit="updateProfile(event)">
+                <label for="newUsername">New Username:</label>
+                <input type="text" id="newUsername" placeholder="New Username" required>
+                <label for="newEmail">New Email:</label>
+                <input type="email" id="newEmail" placeholder="New Email" required>
+                <button type="submit">Update Profile</button>
+
+            </form>
+            <button onclick="deleteProfile()">Delete Profile</button>
+
+            
+        
+        </div>
+    </div>
+     
+</body>
+</html>

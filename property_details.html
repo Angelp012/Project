@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="./images/Ellipse 1.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./styles/common.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <title>Properties</title>
+  </head>
+  <body>
+    <h1>Property Details</h1>
+    <div id="propertyDetails">
+      <!-- Display saved data here -->
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const propertyData = JSON.parse(localStorage.getItem('propertyData'));
+
+        if (propertyData) {
+          const propertyDetailsDiv = document.getElementById(
+            'propertyDetails'
+          );
+          const detailsList = document.createElement('ul');
+
+          for (const key in propertyData) {
+            const listItem = document.createElement('li');
+
+            if (key === 'image') {
+              const imageElement = document.createElement('img');
+
+              if (
+                propertyData[key] instanceof Blob ||
+                propertyData[key] instanceof File
+              ) {
+                // Use createObjectURL to display the image
+                const imageUrl = URL.createObjectURL(propertyData[key]);
+                imageElement.src = imageUrl;
+                imageElement.alt = 'Uploaded Image';
+              } else {
+                // If it's not a Blob or File, use a placeholder image
+                imageElement.src = '../apartment.png'; // Provide a placeholder image URL
+                imageElement.alt = 'Placeholder Image';
+              }
+
+              listItem.appendChild(imageElement);
+            } else {
+              listItem.innerHTML = `<strong>${key}:</strong> ${propertyData[key]}`;
+            }
+
+            detailsList.appendChild(listItem);
+          }
+
+          propertyDetailsDiv.appendChild(detailsList);
+        } else {
+          // Handle the case when there's no saved data
+          console.log('No property data found.');
+        }
+      });
+    </script>
+  </body>
+</html>

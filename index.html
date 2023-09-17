@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <link rel="shortcut icon" href="./images/Ellipse 1.png" type="image/x-icon">
+    <link rel="stylesheet" href= "./styles/common.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    
+    <title>Rental</title>
+    
+    
+
+
+          
+
+  </head>
+  <body>
+    <script>
+      
+  // Function to check if the user is authenticated
+  function checkAuthentication() {
+      var isUserAuthenticated = localStorage.getItem('is_authenticated');
+      var currentPage = window.location.pathname;
+
+      if (!isUserAuthenticated && currentPage !== '/index.html') {
+          // If not authenticated and not already on 'index.html', redirect to the sign-in page
+          window.location.href = 'Signin.html'; // Corrected filename
+      }
+  }
+
+  // Run the authentication check when the document is fully loaded
+  document.addEventListener('DOMContentLoaded', checkAuthentication);
+</script>
+
+    
+    <section class="home-main">
+      <nav>
+       
+        <i class="fa fa-bars" aria-hidden="true"></i>
+
+        <ul>
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <li><a href="/"></a>Home</a></li>
+          <li><a href="./Profile.html">Profile</a></li>
+          <li><a href="./Contact.html">Contact</a></li>
+          <li><a href="./Add my property.html">Add my property</a></li>
+          
+        </ul>
+      </nav>
+
+      <div class="main-content">
+        <h1>Discover a new home</h1>
+        <p>
+          Helping million renters find their perfect fit
+        </p>
+
+        <a href="./Signin.html" class="gradient-btn">Sign in</a>
+      </div>
+    </section>
+    <div class="container">
+
+      <h2 class="h2 section-title">Our Main Focus</h2>
+
+      <ul class="service-list">
+
+        <li>
+          <div class="service-card">
+
+            <div class="card-icon">
+              <img src="./img/service-1.png" alt="Service icon">
+            </div>
+
+            <h3 class="h3 card-title">
+              <a href="#">Condo</a>
+            </h3>
+
+            <p class="card-text">
+              we can match you with a house you will want to call home.
+            </p>
+
+            <a href="#" class="card-link">
+              <span>Find A Home</span>
+
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="service-card">
+
+            <div class="card-icon">
+              <img src="./img/service-2.png" alt="Service icon">
+            </div>
+
+            <h3 class="h3 card-title">
+              <a href="#">Apartments</a>
+            </h3>
+
+            <p class="card-text">
+             we can match you with a house you will want to call home.
+            </p>
+
+            <a href="#" class="card-link">
+              <span>Find A Home</span>
+
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="container">
+          <div class="service-card">
+
+            <div class="card-icon">
+              <img src="./img/service-3.png" alt="Service icon">
+            </div>
+
+            <h3 class="h3 card-title">
+              <a href="#">House</a>
+            </h3>
+
+            <p class="card-text">
+             we can match you with a house you will want to call home.
+            </p>
+
+            <a href="#" class="card-link">
+              <span>Find A Home</span>
+
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+  </body>
+</html>
+  </body>
+</html>

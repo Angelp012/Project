@@ -1,0 +1,159 @@
+.home-main{
+  background: url("../images/paul-kapischka-NLbMgDBio4Y-unsplash.jpg") no-repeat;
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+
+}
+.main-content {
+    color: #161616;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+  }
+  
+  .main-content h1 {
+    font-size: 3rem;
+  }
+  
+  .main-content p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .gradient-btn {
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    color: #fff;
+    background-image: linear-gradient(
+      to right,
+      #f0c713 0%,
+      #f0c713 51%,
+      #f0c713 100%
+    );
+    border-radius: 10px;
+    background-size: 200% auto;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .main-content .gradient-btn {
+    width: 200px;
+    height: 45px;
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+  }
+  
+  .gradient-btn:hover {
+    background-position: right center;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .main-content h1 {
+      font-size: 2.25rem;
+    }
+  
+    .main-content p {
+      font-size: 1rem;
+    }
+  
+    .gradient-btn {
+      width: 175px;
+      height: 40px;
+      font-size: 0.8rem;
+    }
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+  }
+  *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  .service {
+    background: var(--cultured-2);
+    padding-block: var(--section-padding);
+}
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    display: block;
+}
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Adjust as needed */
+  gap: 30px;
+}*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+.container {
+  flex: 0 1 calc(30% - 20px); /* Adjust the width as needed */
+  position: relative;
+  background: var(--white);
+  text-align: center;
+  padding: 40px 30px;
+  margin: 10px;
+  box-shadow: var(--shadow-2);
+}
+.service-card .card-icon {
+  width: max-content;
+  margin-inline: auto;
+  margin-bottom: 20px;
+}
+  }
+  .service-card .card-title {
+    margin-bottom: 15px;
+  }
+.h3 {
+  font-size: var(--fs-4);
+  font-weight: var(--font-weight, 700);
+}
+
+.h1, .h2, .h3 {
+  color: var(--dark-jungle-green);
+  font-family: var(--ff-poppins);
+  line-height: 1.3;
+}.service-card .card-text {
+  color: var(--cadet);
+  font-size: var(--fs-5);
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.service-card .card-link {
+  color: blue;
+  font-size: var(--fs-5);
+  font-weight: var(--fw-600);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
